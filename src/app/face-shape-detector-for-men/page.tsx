@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Card, Pill, PrimaryLink, Section, SecondaryLink } from "@/components/ui-blocks"
+import { MockAnalysisFlow } from "@/components/mock-analysis-flow"
 
 export const metadata: Metadata = {
   title: "Face Shape Detector for Men | Looksmaxxing Hair AI",
@@ -26,34 +27,7 @@ export default function DetectorPage() {
             <SecondaryLink href="/mens-hairstyles-by-face-shape">See haircut recommendations</SecondaryLink>
           </div>
         </div>
-        <Card className="scan-frame min-h-[540px] border-emerald-500/20 bg-[linear-gradient(180deg,rgba(16,185,129,0.1),rgba(9,9,11,0.9))]">
-          <div className="flex h-full flex-col justify-between rounded-[1.5rem] border border-white/10 bg-black/40 p-6">
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-zinc-400">
-              <span>Photo upload</span>
-              <span className="text-emerald-300">Accuracy-first</span>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto flex h-32 w-32 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-5xl text-emerald-300">
-                ⌁
-              </div>
-              <h2 className="mt-6 text-2xl font-black uppercase text-white">Scan your face</h2>
-              <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-zinc-400">
-                For the cleanest result, use a clear front-facing photo with visible forehead, cheekbones, and jawline.
-              </p>
-            </div>
-            <div className="grid gap-3 md:grid-cols-3">
-              {[
-                "Forehead visible",
-                "Neutral head angle",
-                "Strong lighting",
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Card>
+        <MockAnalysisFlow />
       </section>
 
       <Section eyebrow="Why this matters" title="The wrong classification ruins haircut advice fast." description="If you confuse oval with oblong or square with round, the whole recommendation layer gets weaker. That is why the upload step matters.">
