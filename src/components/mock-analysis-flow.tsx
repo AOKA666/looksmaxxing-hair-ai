@@ -101,8 +101,8 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
                     <div className="absolute right-5 top-5 h-5 w-5 border-r-2 border-t-2 border-emerald-300" />
                     <div className="absolute bottom-5 left-5 h-5 w-5 border-b-2 border-l-2 border-emerald-300" />
                     <div className="absolute bottom-5 right-5 h-5 w-5 border-b-2 border-r-2 border-emerald-300" />
-                    <div className="absolute inset-x-0 top-0 h-full overflow-hidden rounded-[2rem]">
-                      <div className="scan-beam absolute left-0 right-0 top-[-22%] h-[26%]" />
+                    <div className="absolute inset-x-0 top-0 z-20 h-full overflow-hidden rounded-[2rem]">
+                      <div className="scan-beam absolute left-0 right-0 top-[-18%] h-24" />
                     </div>
                   </div>
                 ) : null}
