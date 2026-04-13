@@ -44,7 +44,6 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
     })
 
     window.setTimeout(() => {
-      setStage("done")
       setStepIndex(loadingSteps.length - 1)
       if (storedPreviewUrl) {
         window.sessionStorage.setItem("looksmaxxing-preview", storedPreviewUrl)
@@ -96,8 +95,15 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
                 )}
 
                 {stage === "loading" ? (
-                  <div className="pointer-events-none absolute inset-0 bg-black/25">
-                    <div className="scan-frame absolute inset-0" />
+                  <div className="pointer-events-none absolute inset-0 z-10 bg-black/20">
+                    <div className="absolute inset-3 rounded-[1.4rem] border border-emerald-400/40" />
+                    <div className="absolute left-5 top-5 h-5 w-5 border-l-2 border-t-2 border-emerald-300" />
+                    <div className="absolute right-5 top-5 h-5 w-5 border-r-2 border-t-2 border-emerald-300" />
+                    <div className="absolute bottom-5 left-5 h-5 w-5 border-b-2 border-l-2 border-emerald-300" />
+                    <div className="absolute bottom-5 right-5 h-5 w-5 border-b-2 border-r-2 border-emerald-300" />
+                    <div className="absolute inset-x-0 top-0 h-full overflow-hidden rounded-[2rem]">
+                      <div className="scan-beam absolute left-0 right-0 top-[-22%] h-[26%]" />
+                    </div>
                   </div>
                 ) : null}
               </div>
