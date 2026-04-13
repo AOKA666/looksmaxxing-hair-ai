@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useRef, useState } from "react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui-blocks"
 
 type Stage = "idle" | "loading" | "done"
@@ -21,6 +21,7 @@ const probabilities = [
 ] as const
 
 export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
+  const router = useRouter()
   const inputRef = useRef<HTMLInputElement | null>(null)
   const [stage, setStage] = useState<Stage>("idle")
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
@@ -34,7 +35,7 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
     return "Analysis complete. Review your result and use the style recommendations below."
   }, [stage, activeStep])
 
-  const startFakeAnalysis = () => {
+  const startFakeAnalysis = (storedPreviewUrl?: string) => {
     setStage("loading")
     setStepIndex(0)
 
@@ -45,6 +46,10 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
     window.setTimeout(() => {
       setStage("done")
       setStepIndex(loadingSteps.length - 1)
+      if (storedPreviewUrl) {
+        window.sessionStorage.setItem("looksmaxxing-preview", storedPreviewUrl)
+      }
+      router.push("/result")
     }, loadingSteps.length * 900 + 250)
   }
 
@@ -53,7 +58,7 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
     if (previewUrl) URL.revokeObjectURL(previewUrl)
     const nextUrl = URL.createObjectURL(file)
     setPreviewUrl(nextUrl)
-    startFakeAnalysis()
+    startFakeAnalysis(nextUrl)
   }
 
   const frameHeight = compact ? "min-h-[640px]" : "min-h-[560px]"
@@ -113,14 +118,6 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
               >
                 {previewUrl ? "Replace photo" : "Upload photo"}
               </button>
-              {!compact ? (
-                <Link
-                  href="/result-demo"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-zinc-100 transition hover:border-emerald-500/40 hover:text-emerald-300"
-                >
-                  See an example result
-                </Link>
-              ) : null}
               <input
                 ref={inputRef}
                 type="file"

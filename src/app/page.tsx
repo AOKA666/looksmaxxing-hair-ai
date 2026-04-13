@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Card, Pill, PrimaryLink, Section, SecondaryLink } from "@/components/ui-blocks"
+import { Card, Pill, PrimaryLink, Section } from "@/components/ui-blocks"
 import { MockAnalysisFlow } from "@/components/mock-analysis-flow"
 import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
@@ -32,7 +32,6 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <PrimaryLink href="/face-shape-detector-for-men">Scan your face</PrimaryLink>
-            <SecondaryLink href="/result-demo">See an example result</SecondaryLink>
           </div>
           <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 text-sm text-zinc-400 sm:grid-cols-3">
             <div>
