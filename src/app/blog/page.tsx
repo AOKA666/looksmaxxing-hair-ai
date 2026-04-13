@@ -5,12 +5,12 @@ import { blogPosts } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Blog | Looksmaxxing Hair AI",
-  description: "Male-first face shape, haircut, and beard content built around real grooming decisions.",
+  description: "Face shape, haircut, and beard guides for men who want clearer grooming decisions.",
 }
 
 export default function BlogPage() {
   return (
-    <Section eyebrow="Blog" title="Male-first face shape guides" description="SEO content should support the product, not wander off into generic style fluff.">
+    <Section eyebrow="Blog" title="Face shape, haircut, and beard guides" description="Read practical articles to help you choose better haircuts, beard styles, and grooming direction.">
       <div className="grid gap-5 md:grid-cols-3">
         {blogPosts.map((post) => (
           <Card key={post.slug}>

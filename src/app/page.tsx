@@ -3,16 +3,16 @@ import { Card, Pill, PrimaryLink, Section, SecondaryLink } from "@/components/ui
 import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
 const features = [
-  ["Face shape read", "Get a likely face shape plus close alternatives instead of one blind label."],
-  ["Haircut strategy", "See what cuts add balance, reduce width, or avoid extra length."],
-  ["Beard guidance", "Use beard shape to sharpen the jawline or stop your face looking longer."],
-  ["Looksmaxxing angle", "Built for men who care about proportions, not vague beauty-blog fluff."],
+  ["Face shape analysis", "See your most likely face shape and understand why it fits your features."],
+  ["Haircut recommendations", "Find styles that add balance, sharpen your features, and suit your structure."],
+  ["Beard guidance", "Use beard shape to improve jaw definition and overall facial balance."],
+  ["Clearer style direction", "Get focused advice for men who want to look sharper in real life and in photos."],
 ]
 
 const steps = [
   "Upload a clear, front-facing photo.",
-  "Review your likely face shape and close alternatives.",
-  "Get haircut, beard, and style direction built around your structure.",
+  "See your face shape analysis and facial balance summary.",
+  "Get haircut, beard, and style recommendations that fit your features.",
 ]
 
 export default function HomePage() {
@@ -27,12 +27,11 @@ export default function HomePage() {
             Start <span className="text-emerald-400">winning.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-            Looksmaxxing Hair AI is a male-first face shape and grooming tool built to turn one selfie into
-            stronger haircut, beard, and glasses decisions.
+            Upload one clear selfie and get face shape insights, haircut ideas, beard suggestions, and style direction designed for men.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <PrimaryLink href="/face-shape-detector-for-men">Scan your face</PrimaryLink>
-            <SecondaryLink href="/result-demo">See a demo result</SecondaryLink>
+            <SecondaryLink href="/result-demo">See an example result</SecondaryLink>
           </div>
           <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 text-sm text-zinc-400 sm:grid-cols-3">
             <div>
@@ -40,8 +39,8 @@ export default function HomePage() {
               <p>Fast AI-style visual diagnosis</p>
             </div>
             <div>
-              <p className="text-2xl font-black text-white">Male-first</p>
-              <p>Designed around hair, beard, and frame decisions for men</p>
+              <p className="text-2xl font-black text-white">For men</p>
+              <p>Focused on hair, beard, and frame choices that suit male styling goals</p>
             </div>
             <div>
               <p className="text-2xl font-black text-white">Actionable</p>
@@ -83,9 +82,9 @@ export default function HomePage() {
       </section>
 
       <Section
-        eyebrow="Why it hits"
-        title="Built for men who care how they actually look in motion, photos, and first impressions."
-        description="This is not a generic beauty toy. It is a grooming decision layer that helps you choose cuts and facial hair based on proportions, not vibe." 
+        eyebrow="Why use it"
+        title="Built for men who want clearer grooming and haircut decisions."
+        description="Use face shape, proportions, and structure to choose styles that make you look sharper and more balanced." 
       >
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map(([title, description]) => (
@@ -99,8 +98,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="How it works"
-        title="Three steps. No nonsense."
-        description="The whole product loop should feel obvious: upload, understand your structure, and leave with better style decisions."
+        title="Three simple steps"
+        description="Upload a photo, review your analysis, and use the recommendations to improve your look."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {steps.map((step, index) => (
@@ -126,7 +125,7 @@ export default function HomePage() {
                   <p className="mt-2 text-sm leading-7 text-zinc-400">{card.summary}</p>
                 </div>
                 <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                  AI ready
+                  Recommended
                 </span>
               </div>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -153,28 +152,28 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Core paths"
-        title="The SEO and product structure already points where the business should go."
-        description="Tool pages catch broad intent. Content pages catch long-tail male queries. Result pages carry trust and conversion."
+        eyebrow="Explore"
+        title="Go deeper into the style advice that fits you best"
+        description="Browse focused pages for face shape analysis, haircut ideas, and beard recommendations."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["/face-shape-detector-for-men", "Face Shape Detector for Men", "The main product page for male-first analysis and recommendations."],
-            ["/mens-hairstyles-by-face-shape", "Men's Hairstyles by Face Shape", "Cluster hub for haircut decisions across square, oval, round, and oblong faces."],
-            ["/beard-styles-by-face-shape", "Beard Styles by Face Shape", "Use beard shape to strengthen the jawline or reduce extra face length."],
+            ["/face-shape-detector-for-men", "Face Shape Detector for Men", "Upload a photo and get face shape insights, haircut ideas, and style direction."],
+            ["/mens-hairstyles-by-face-shape", "Men's Hairstyles by Face Shape", "Compare haircut ideas for square, oval, round, and oblong face shapes."],
+            ["/beard-styles-by-face-shape", "Beard Styles by Face Shape", "Find beard styles that improve balance and sharpen your features."],
           ].map(([href, title, description]) => (
             <Card key={href}>
               <p className="text-lg font-bold text-white">{title}</p>
               <p className="mt-3 text-sm leading-7 text-zinc-400">{description}</p>
               <Link href={href} className="mt-6 inline-flex text-sm font-semibold text-emerald-300">
-                Open path →
+                Explore →
               </Link>
             </Card>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Blog cluster" title="Male-first SEO content that actually fits the product." description="These are the kinds of pages that support both search traffic and recommendation trust.">
+      <Section eyebrow="Guides" title="Popular haircut and beard guides" description="Read practical advice for face shape, haircuts, beards, and men's style decisions.">
         <div className="grid gap-5 md:grid-cols-3">
           {blogPosts.map((post) => (
             <Card key={post.slug}>

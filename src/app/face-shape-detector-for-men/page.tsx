@@ -3,7 +3,7 @@ import { Card, Pill, PrimaryLink, Section, SecondaryLink } from "@/components/ui
 
 export const metadata: Metadata = {
   title: "Face Shape Detector for Men | Looksmaxxing Hair AI",
-  description: "Upload a clear photo and get male-first haircut, beard, and glasses direction from AI-style face shape analysis.",
+  description: "Upload a clear photo and get haircut, beard, and glasses recommendations from face shape analysis designed for men.",
 }
 
 export default function DetectorPage() {
@@ -59,9 +59,9 @@ export default function DetectorPage() {
       <Section eyebrow="Why this matters" title="The wrong classification ruins haircut advice fast." description="If you confuse oval with oblong or square with round, the whole recommendation layer gets weaker. That is why the upload step matters.">
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["Likely primary shape", "The tool should show your main result, not just throw one label and disappear."],
-            ["Close alternatives", "Good face shape analysis admits when two shapes are close instead of pretending certainty."],
-            ["Actionable output", "The result should tell you what to do next with hair, beard, and styling."],
+            ["Your main result", "See the face shape that best matches your structure based on the photo you upload."],
+            ["Similar face shapes", "If two shapes are close, you can compare them before deciding on a haircut."],
+            ["What to do next", "Use the result to choose better hair, beard, and styling options."],
           ].map(([title, description]) => (
             <Card key={title}>
               <p className="text-lg font-bold text-white">{title}</p>

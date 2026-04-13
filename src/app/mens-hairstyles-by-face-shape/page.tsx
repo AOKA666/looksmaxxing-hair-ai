@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MensHaircutsPage() {
   return (
-    <Section eyebrow="Haircut hub" title="Men's hairstyles by face shape" description="Use face shape to decide whether you need more height, more structure, less width, or less length.">
+    <Section eyebrow="Haircuts" title="Men's hairstyles by face shape" description="Use face shape to choose haircuts that balance your features and suit your proportions.">
       <div className="grid gap-5 lg:grid-cols-2">
         {faceShapeCards.map((card) => (
           <Card key={card.name}>

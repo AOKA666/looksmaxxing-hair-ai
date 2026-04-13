@@ -15,7 +15,7 @@ const beardRows = [
 
 export default function BeardPage() {
   return (
-    <Section eyebrow="Beard hub" title="Beard styles by face shape" description="Beard shape changes perceived jawline, chin length, and lower-face balance. Use it like a tool, not a random attachment.">
+    <Section eyebrow="Beards" title="Beard styles by face shape" description="Beard shape changes jaw definition, chin length, and lower-face balance. Choose a style that improves your overall proportions.">
       <div className="grid gap-5 md:grid-cols-2">
         {beardRows.map(([shape, good, bad]) => (
           <Card key={shape}>

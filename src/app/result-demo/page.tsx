@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { Card, Pill, Section } from "@/components/ui-blocks"
 
 export const metadata: Metadata = {
-  title: "Demo Result | Looksmaxxing Hair AI",
-  description: "Preview a male-first face shape result experience with haircut and beard recommendations.",
+  title: "Example Result | Looksmaxxing Hair AI",
+  description: "Preview an example face shape result with haircut and beard recommendations.",
 }
 
 const probabilities = [
@@ -18,10 +18,9 @@ export default function ResultDemoPage() {
     <>
       <section className="mx-auto max-w-7xl px-5 py-16 md:py-24">
         <Pill>Result demo</Pill>
-        <h1 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">What the result should feel like.</h1>
+        <h1 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">Example face shape result</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
-          This is the product layer that actually matters. Not just a label. A structured read, confidence context,
-          and what to do next.
+          This preview shows how your result can explain your face shape and turn it into useful haircut and beard recommendations.
         </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
           <Card className="scan-frame min-h-[620px] bg-[linear-gradient(180deg,rgba(16,185,129,0.12),rgba(9,9,11,0.92))]">
@@ -92,12 +91,12 @@ export default function ResultDemoPage() {
         </div>
       </section>
 
-      <Section eyebrow="What comes next" title="This is where product trust turns into action." description="The next step after the result should be obvious: go deeper into the haircut or beard recommendation that fits your structure.">
+      <Section eyebrow="Next steps" title="Use your result to choose a better style" description="After you get your face shape, the next step is simple: explore the haircut, beard, or comparison guide that fits you best.">
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["Haircut guide", "Open the matching haircut hub for your face shape."],
+            ["Haircut guide", "Open the matching haircut guide for your face shape."],
             ["Beard guide", "See which beard shapes improve balance instead of hurting it."],
-            ["Comparison path", "If two shapes are close, compare them before committing."],
+            ["Compare similar shapes", "If two face shapes look close, compare them before committing to a new cut."],
           ].map(([title, description]) => (
             <Card key={title}>
               <p className="text-lg font-bold text-white">{title}</p>
