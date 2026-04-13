@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Card, Pill, PrimaryLink, Section, SecondaryLink } from "@/components/ui-blocks"
+import { MockAnalysisFlow } from "@/components/mock-analysis-flow"
 import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
 const features = [
@@ -49,36 +50,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <Card className="relative overflow-hidden p-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 to-transparent" />
-          <div className="scan-frame relative aspect-[4/5] rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_38%),linear-gradient(180deg,#18181b,#09090b)] p-6">
-            <div className="flex h-full flex-col justify-between rounded-[1.5rem] border border-white/10 bg-black/40 p-6 backdrop-blur-sm">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-zinc-400">
-                <span>Scan module</span>
-                <span className="text-emerald-300">Online</span>
-              </div>
-              <div className="space-y-4 text-center">
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-4xl">
-                  ◎
-                </div>
-                <div>
-                  <p className="text-2xl font-black uppercase text-white">Scan your face</p>
-                  <p className="mt-2 text-sm text-zinc-400">Front-facing. Clear lighting. Forehead, cheekbones, and jaw visible.</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="h-2 rounded-full bg-white/10">
-                  <div className="h-2 w-3/4 rounded-full bg-emerald-400" />
-                </div>
-                <div className="grid grid-cols-3 gap-3 text-center text-xs uppercase tracking-[0.2em] text-zinc-400">
-                  <div className="rounded-2xl border border-white/10 p-3">Jawline</div>
-                  <div className="rounded-2xl border border-white/10 p-3">Symmetry</div>
-                  <div className="rounded-2xl border border-white/10 p-3">Shape</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
+        <MockAnalysisFlow compact />
       </section>
 
       <Section
