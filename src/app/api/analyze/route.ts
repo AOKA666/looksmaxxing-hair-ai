@@ -22,10 +22,11 @@ beard_recommendation: (强力加分项！基于他的脸型，推荐留什么胡
 avoid_styles: (千万不要留的2款发型)
 
 额外要求：
-1. 只输出 JSON，不要输出 markdown，不要输出解释。
+1. 只输出 JSON，不要输出 markdown，不要输出解释，不要输出代码块。
 2. best_hairstyles 请输出为字符串数组，只包含3个发型名。
 3. 向理发师沟通的3条具体指令请单独输出到 barber_instructions 数组中。
-4. avoid_styles 请输出为字符串数组，只包含2个发型名。`
+4. avoid_styles 请输出为字符串数组，只包含2个发型名。
+5. 输出必须是一个可被 JSON.parse 直接解析的对象。`
 
 function extractJsonObject(raw: string) {
   const fenced = raw.match(/```json\s*([\s\S]*?)```/i)
@@ -62,7 +63,6 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         model,
         temperature: 0.3,
-        response_format: { type: "json_object" },
         messages: [
           {
             role: "user",
