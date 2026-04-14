@@ -11,22 +11,26 @@ type SiliconFlowResponse = {
   }>
 }
 
-const ANALYSIS_PROMPT = `你是一个世界顶级的男士形象设计师和理发师。请分析用户上传的照片，并严格按照以下 JSON 格式输出深度分析报告：
-face_shape: (枚举：Square, Round, Oval, Diamond, Heart, Oblong)
-jawline_sharpness: (1-10的评分)
-cheekbone_prominence: (1-10的评分)
-forehead_width: (Narrow, Medium, Wide)
-face_analysis_text: (一段充满同理心、像专家一样点评他面部优势的文字，2-3句话)
-best_hairstyles: (推荐3款具体发型名称，必须包含向理发师沟通的3条具体指令)
-beard_recommendation: (强力加分项！基于他的脸型，推荐留什么胡子，例如 5 o'clock shadow 或 Goatee)
-avoid_styles: (千万不要留的2款发型)
+const ANALYSIS_PROMPT = `You are a world-class men's image consultant and barber. Analyze the user's uploaded photo and return a deep analysis report in strict JSON using English only.
 
-额外要求：
-1. 只输出 JSON，不要输出 markdown，不要输出解释，不要输出代码块。
-2. best_hairstyles 请输出为字符串数组，只包含3个发型名。
-3. 向理发师沟通的3条具体指令请单独输出到 barber_instructions 数组中。
-4. avoid_styles 请输出为字符串数组，只包含2个发型名。
-5. 输出必须是一个可被 JSON.parse 直接解析的对象。`
+Return exactly these fields:
+face_shape: one of Square, Round, Oval, Diamond, Heart, Oblong
+jawline_sharpness: integer score from 1 to 10
+cheekbone_prominence: integer score from 1 to 10
+forehead_width: one of Narrow, Medium, Wide
+face_analysis_text: 2-3 empathetic expert sentences in English describing the user's strengths and facial advantages
+best_hairstyles: an array with exactly 3 specific hairstyle names in English
+barber_instructions: an array with exactly 3 clear instructions in English that the user can tell a barber
+beard_recommendation: one strong beard recommendation in English based on the user's face shape
+avoid_styles: an array with exactly 2 hairstyle names in English to avoid
+
+Rules:
+1. Output English only.
+2. Output JSON only.
+3. Do not output markdown.
+4. Do not output explanations.
+5. Do not output code fences.
+6. The response must be a single object that can be parsed directly by JSON.parse().`
 
 function extractJsonObject(raw: string) {
   const fenced = raw.match(/```json\s*([\s\S]*?)```/i)
