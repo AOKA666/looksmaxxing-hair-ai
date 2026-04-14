@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Card, Pill, PrimaryLink, Section } from "@/components/ui-blocks"
+import { Card, Pill, Section } from "@/components/ui-blocks"
 import { MockAnalysisFlow } from "@/components/mock-analysis-flow"
+import { UploadTriggerButton } from "@/components/upload-trigger-button"
 import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
 const features = [
@@ -31,7 +32,7 @@ export default function HomePage() {
             Upload one clear selfie and get face shape insights, haircut ideas, beard suggestions, and style direction designed for men.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <PrimaryLink href="/face-shape-detector-for-men">Scan your face</PrimaryLink>
+            <UploadTriggerButton inputId="home-upload-input">Scan your face</UploadTriggerButton>
           </div>
           <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 text-sm text-zinc-400 sm:grid-cols-3">
             <div>
@@ -49,7 +50,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <MockAnalysisFlow compact />
+        <MockAnalysisFlow compact inputId="home-upload-input" />
       </section>
 
       <Section
@@ -129,7 +130,7 @@ export default function HomePage() {
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["/face-shape-detector-for-men", "Face Shape Detector for Men", "Upload a photo and get face shape insights, haircut ideas, and style direction."],
+            ["/result-demo", "Example Result", "Preview how your face shape result can turn into haircut, beard, and style advice."],
             ["/mens-hairstyles-by-face-shape", "Men's Hairstyles by Face Shape", "Compare haircut ideas for square, oval, round, and oblong face shapes."],
             ["/beard-styles-by-face-shape", "Beard Styles by Face Shape", "Find beard styles that improve balance and sharpen your features."],
           ].map(([href, title, description]) => (

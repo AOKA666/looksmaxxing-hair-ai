@@ -35,7 +35,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <Card>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Next step</p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-zinc-300">
-              <Link href="/face-shape-detector-for-men">Face Shape Detector for Men →</Link>
+              <Link href="/">Upload a Photo →</Link>
               <Link href="/mens-hairstyles-by-face-shape">Men's Hairstyles by Face Shape →</Link>
               <Link href="/beard-styles-by-face-shape">Beard Styles by Face Shape →</Link>
             </div>

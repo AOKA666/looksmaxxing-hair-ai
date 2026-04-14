@@ -20,7 +20,7 @@ const probabilities = [
   ["Round", 4],
 ] as const
 
-export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
+export function MockAnalysisFlow({ compact = false, inputId = "upload-input" }: { compact?: boolean; inputId?: string }) {
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement | null>(null)
   const [stage, setStage] = useState<Stage>("idle")
@@ -125,6 +125,7 @@ export function MockAnalysisFlow({ compact = false }: { compact?: boolean }) {
                 {previewUrl ? "Replace photo" : "Upload photo"}
               </button>
               <input
+                id={inputId}
                 ref={inputRef}
                 type="file"
                 accept="image/*"

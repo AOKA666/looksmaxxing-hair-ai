@@ -3,7 +3,6 @@ import type { ReactNode } from "react"
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/face-shape-detector-for-men", label: "Detector" },
   { href: "/mens-hairstyles-by-face-shape", label: "Haircuts" },
   { href: "/beard-styles-by-face-shape", label: "Beards" },
   { href: "/blog", label: "Blog" },
@@ -45,7 +44,7 @@ Example Result
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-200">Main Pages</p>
             <div className="mt-3 flex flex-col gap-2 text-sm text-zinc-400">
-              <Link href="/face-shape-detector-for-men">Face Shape Detector for Men</Link>
+              <Link href="/">Upload a Photo</Link>
               <Link href="/mens-hairstyles-by-face-shape">Men&apos;s Hairstyles by Face Shape</Link>
               <Link href="/beard-styles-by-face-shape">Beard Styles by Face Shape</Link>
             </div>
