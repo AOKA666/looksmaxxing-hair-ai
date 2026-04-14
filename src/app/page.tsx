@@ -130,7 +130,7 @@ export default function HomePage() {
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["/result-demo", "Example Result", "Preview how your face shape result can turn into haircut, beard, and style advice."],
+            ["/result", "Your Result", "See how your face shape result turns into haircut, beard, and style advice."],
             ["/mens-hairstyles-by-face-shape", "Men's Hairstyles by Face Shape", "Compare haircut ideas for square, oval, round, and oblong face shapes."],
             ["/beard-styles-by-face-shape", "Beard Styles by Face Shape", "Find beard styles that improve balance and sharpen your features."],
           ].map(([href, title, description]) => (
