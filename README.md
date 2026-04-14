@@ -1,26 +1,26 @@
 # Looksmaxxing Hair AI
 
-A redesigned male-first face shape, haircut, and beard recommendation website built with Next.js App Router and Tailwind CSS.
+A redesigned face shape, haircut, and beard recommendation website for men, built with Next.js App Router and Tailwind CSS.
 
-## Product Positioning
+## Current routes
 
-Looksmaxxing Hair AI is positioned as a premium grooming decision tool for men:
-
-- analyze likely face shape
-- understand close alternative shapes
-- get haircut direction
-- get beard and glasses guidance
-- support SEO with male-first content clusters
-
-## Routes
-
-- `/` — landing page
-- `/face-shape-detector-for-men` — detector page
-- `/result-demo` — sample analysis output
+- `/` — landing page with direct upload
+- `/result` — analysis result page
 - `/mens-hairstyles-by-face-shape` — haircut hub
 - `/beard-styles-by-face-shape` — beard hub
 - `/blog` — blog hub
-- `/blog/[slug]` — static male-first articles
+- `/blog/[slug]` — static article pages
+- `/api/analyze` — server-side analysis route for SiliconFlow vision API
+
+## Environment variables
+
+Create a `.env.local` file with:
+
+```bash
+SILICONFLOW_API_KEY=your_siliconflow_api_key
+# Optional. Defaults to Qwen/Qwen2.5-VL-72B-Instruct
+SILICONFLOW_VISION_MODEL=Qwen/Qwen2.5-VL-72B-Instruct
+```
 
 ## Run locally
 
@@ -36,6 +36,8 @@ npm run build
 npm run start
 ```
 
-## Design direction
+## Notes
 
-The visual direction is inspired by a dark, emerald-accented, diagnostic interface with a stronger masculine premium feel. The uploaded reference file informed the mood and information hierarchy, but this implementation is original.
+- The upload flow now calls the real SiliconFlow multimodal vision backend.
+- The result page reads the stored analysis payload and fills the UI dynamically.
+- If the API fails, the UI falls back to a safe default analysis so the page does not break.

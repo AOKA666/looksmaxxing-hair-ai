@@ -2,30 +2,37 @@
 
 import { useEffect, useState } from "react"
 import { Card, Pill, Section } from "@/components/ui-blocks"
-
-const probabilities = [
-  ["Square", 78],
-  ["Oblong", 12],
-  ["Oval", 6],
-  ["Round", 4],
-] as const
+import { fallbackAnalysis, normalizeAnalysisResult, type AnalysisResult } from "@/lib/analysis"
 
 export function ResultView({ allowPreviewImage = false }: { allowPreviewImage?: boolean }) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
+  const [result, setResult] = useState<AnalysisResult>(fallbackAnalysis)
 
   useEffect(() => {
-    if (!allowPreviewImage || typeof window === "undefined") return
-    const stored = window.sessionStorage.getItem("looksmaxxing-preview")
-    if (stored) setPreviewUrl(stored)
+    if (typeof window === "undefined") return
+
+    if (allowPreviewImage) {
+      const storedPreview = window.sessionStorage.getItem("looksmaxxing-preview")
+      if (storedPreview) setPreviewUrl(storedPreview)
+    }
+
+    const storedResult = window.sessionStorage.getItem("looksmaxxing-analysis")
+    if (storedResult) {
+      try {
+        setResult(normalizeAnalysisResult(JSON.parse(storedResult)))
+      } catch {
+        setResult(fallbackAnalysis)
+      }
+    }
   }, [allowPreviewImage])
 
   return (
     <>
       <section className="mx-auto max-w-7xl px-5 py-16 md:py-24">
         <Pill>Result</Pill>
-        <h1 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">Example face shape result</h1>
+        <h1 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">Your face shape result</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
-          This preview shows how your result can explain your face shape and turn it into useful haircut and beard recommendations.
+          Review your face shape analysis, understand your strongest features, and use the recommendations to choose a better haircut and beard style.
         </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
           <Card className="min-h-[620px] bg-[linear-gradient(180deg,rgba(16,185,129,0.12),rgba(9,9,11,0.92))]">
@@ -42,59 +49,57 @@ export function ResultView({ allowPreviewImage = false }: { allowPreviewImage?: 
                   ) : null}
                 </div>
                 <p className="mt-6 text-xs font-bold uppercase tracking-[0.35em] text-zinc-400">Likely face shape</p>
-                <p className="mt-2 text-4xl font-black uppercase text-white">Square</p>
-                <p className="mt-2 text-sm text-zinc-400">Strong jawline, broad forehead, balanced face length.</p>
+                <p className="mt-2 text-4xl font-black uppercase text-white">{result.face_shape}</p>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">{result.face_analysis_text}</p>
               </div>
-              <div className="space-y-3">
-                {probabilities.map(([label, value]) => (
-                  <div key={label}>
-                    <div className="mb-1 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-zinc-400">
-                      <span>{label}</span>
-                      <span>{value}%</span>
-                    </div>
-                    <div className="h-2 rounded-full bg-white/10">
-                      <div className="h-2 rounded-full bg-emerald-400" style={{ width: `${value}%` }} />
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-8 grid grid-cols-3 gap-3 text-center">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Jawline</p>
+                  <p className="mt-2 text-lg font-black text-white">{result.jawline_sharpness}/10</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Cheekbones</p>
+                  <p className="mt-2 text-lg font-black text-white">{result.cheekbone_prominence}/10</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Forehead</p>
+                  <p className="mt-2 text-lg font-black text-white">{result.forehead_width}</p>
+                </div>
               </div>
             </div>
           </Card>
 
           <div className="grid gap-5 md:grid-cols-2">
             <Card>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Why this result</p>
-              <h2 className="mt-3 text-2xl font-black text-white">Confidence context</h2>
-              <p className="mt-4 text-sm leading-7 text-zinc-400">
-                Your jawline is angular, the forehead and jaw are similar in width, and the face length is balanced rather than obviously long.
-              </p>
-            </Card>
-            <Card>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Haircut direction</p>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Best hairstyles</p>
               <h2 className="mt-3 text-2xl font-black text-white">Recommended</h2>
               <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-                <li>• Textured crop</li>
-                <li>• Angular quiff</li>
-                <li>• Side part</li>
-                <li>• Crew cut with lift</li>
+                {result.best_hairstyles.map((style) => (
+                  <li key={style}>• {style}</li>
+                ))}
               </ul>
             </Card>
             <Card>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-rose-300">Avoid list</p>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Tell your barber</p>
+              <h2 className="mt-3 text-2xl font-black text-white">3 clear instructions</h2>
+              <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+                {result.barber_instructions.map((instruction) => (
+                  <li key={instruction}>• {instruction}</li>
+                ))}
+              </ul>
+            </Card>
+            <Card>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Beard recommendation</p>
+              <h2 className="mt-3 text-2xl font-black text-white">Strong add-on</h2>
+              <p className="mt-4 text-sm leading-7 text-zinc-300">{result.beard_recommendation}</p>
+            </Card>
+            <Card>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-rose-300">Avoid styles</p>
               <h2 className="mt-3 text-2xl font-black text-white">Usually skip</h2>
               <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-                <li>• Flat boxy cuts</li>
-                <li>• Heavy side bulk</li>
-                <li>• Wide fringe that broadens the forehead</li>
-              </ul>
-            </Card>
-            <Card>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Beard suggestions</p>
-              <h2 className="mt-3 text-2xl font-black text-white">Pairing strategy</h2>
-              <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-                <li>• Heavy stubble for definition</li>
-                <li>• Short boxed beard</li>
-                <li>• Clean full beard without excess side bulk</li>
+                {result.avoid_styles.map((style) => (
+                  <li key={style}>• {style}</li>
+                ))}
               </ul>
             </Card>
           </div>
