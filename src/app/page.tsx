@@ -51,17 +51,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="space-y-5">
-          <Card className="overflow-hidden p-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={siteImages.hero}
-              alt="Premium male grooming AI hero visual"
-              className="h-full min-h-[260px] w-full object-cover"
-            />
-          </Card>
-          <MockAnalysisFlow compact inputId="home-upload-input" />
-        </div>
+        <MockAnalysisFlow compact inputId="home-upload-input" />
       </section>
 
       <Section
@@ -84,23 +74,19 @@ export default function HomePage() {
         title="Three simple steps"
         description="Upload a photo, review your face analysis and looksmaxxing rating signals, and use the recommendations to improve your look."
       >
-        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-1">
-            {steps.map((step, index) => (
+        <div className="grid gap-5 md:grid-cols-3">
+          {steps.map((step, index) => {
+            const icons = ["↑", "◎", "✦"]
+            return (
               <Card key={step}>
-                <p className="text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">Step 0{index + 1}</p>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-500/20 bg-emerald-500/10 text-2xl font-black text-emerald-300">
+                  {icons[index]}
+                </div>
+                <p className="mt-5 text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">Step 0{index + 1}</p>
                 <p className="mt-4 text-xl font-black text-white">{step}</p>
               </Card>
-            ))}
-          </div>
-          <Card className="overflow-hidden p-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={siteImages.howItWorks}
-              alt="Three-step face analysis workflow illustration"
-              className="h-full min-h-[320px] w-full object-cover"
-            />
-          </Card>
+            )
+          })}
         </div>
       </Section>
 
