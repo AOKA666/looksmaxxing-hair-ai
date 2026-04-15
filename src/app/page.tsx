@@ -145,9 +145,24 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section eyebrow="Looksmaxxing" title="Looksmaxxing guides for hair, ratings, chin, and facial features" description="Start with the highest-return looksmaxxing topics if you want to improve facial balance, rankings, and overall presentation.">
+        <div className="grid gap-5 md:grid-cols-3">
+          {blogPosts.filter((post) => post.category === "Looksmaxxing").map((post) => (
+            <Card key={post.slug}>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">{post.category}</p>
+              <h3 className="mt-3 text-xl font-black text-white">{post.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">{post.description}</p>
+              <Link href={`/blog/${post.slug}`} className="mt-6 inline-flex text-sm font-semibold text-emerald-300">
+                Read guide →
+              </Link>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
       <Section eyebrow="Guides" title="Popular haircut and beard guides" description="Read practical advice for face shape, haircuts, beards, and men's style decisions.">
         <div className="grid gap-5 md:grid-cols-3">
-          {blogPosts.map((post) => (
+          {blogPosts.filter((post) => post.category !== "Looksmaxxing").map((post) => (
             <Card key={post.slug}>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">{post.category}</p>
               <h3 className="mt-3 text-xl font-black text-white">{post.title}</h3>

@@ -45,6 +45,30 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "looksmaxxing-chin-guide",
+    title: "Looksmaxxing Chin Guide",
+    description: "How chin shape, beard choice, and haircut balance affect your overall looksmaxxing potential.",
+    category: "Looksmaxxing",
+    date: "2026-04-15",
+    content: [
+      "The chin matters more than most men think. It changes how your jawline reads, how your profile looks, and how balanced the lower half of your face feels.",
+      "A stronger chin usually supports cleaner, more structured haircut choices. A weaker or narrower chin often benefits from beard strategy, less bottom-heavy cuts, and styles that shift attention upward.",
+      "If you are trying to improve facial balance, chin presentation is not some side issue. It is one of the main pieces of the whole looksmaxxing puzzle.",
+    ],
+  },
+  {
+    slug: "looksmaxxing-tiers-men",
+    title: "Looksmaxxing Tiers Men",
+    description: "A practical way to think about looksmaxxing tiers for men using facial structure, grooming, hairstyle choices, and overall presentation.",
+    category: "Looksmaxxing",
+    date: "2026-04-15",
+    content: [
+      "Looksmaxxing tiers for men should not be treated like a weird internet caste system. The useful version is just a way to understand how much improvement is realistically available through grooming and presentation.",
+      "Face shape, jawline sharpness, cheekbone prominence, chin balance, hairstyle fit, beard choice, and photo presence all move the needle. Some men need only better grooming. Others need a full style reset.",
+      "The point of thinking in tiers is not to obsess. It is to identify your highest-return improvements and stop wasting time on low-impact changes.",
+    ],
+  },
+  {
     slug: "best-haircuts-for-square-face-men",
     title: "Best Haircuts for Square Face Men",
     description: "Haircuts that sharpen a strong jawline without making a square face look too boxy, especially for looksmaxxing hair goals.",
