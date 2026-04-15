@@ -107,11 +107,13 @@ export default function HomePage() {
             return (
               <Card key={card.name} className="overflow-hidden p-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={imageMap[card.name as keyof typeof imageMap]}
-                  alt={`${card.name} face shape male portrait`}
-                  className="h-72 w-full object-cover"
-                />
+                <div className="aspect-square w-full bg-zinc-950/40 p-4">
+                  <img
+                    src={imageMap[card.name as keyof typeof imageMap]}
+                    alt={`${card.name} face shape male portrait`}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>

@@ -23,11 +23,13 @@ export default function MensHaircutsPage() {
         {faceShapeCards.map((card) => (
           <Card key={card.name} className="overflow-hidden p-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={faceShapeImageMap[card.name as keyof typeof faceShapeImageMap]}
-              alt={`${card.name} face shape male portrait`}
-              className="h-72 w-full object-cover"
-            />
+            <div className="aspect-square w-full bg-zinc-950/40 p-4">
+              <img
+                src={faceShapeImageMap[card.name as keyof typeof faceShapeImageMap]}
+                alt={`${card.name} face shape male portrait`}
+                className="h-full w-full object-contain"
+              />
+            </div>
             <div className="p-6">
               <h2 className="text-2xl font-black text-white">{card.name} face</h2>
               <p className="mt-3 text-sm leading-7 text-zinc-400">{card.summary}</p>
