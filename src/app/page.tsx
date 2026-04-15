@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Card, Pill, Section } from "@/components/ui-blocks"
 import { MockAnalysisFlow } from "@/components/mock-analysis-flow"
 import { UploadTriggerButton } from "@/components/upload-trigger-button"
+import { siteImages } from "@/lib/assets"
 import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
 const features = [
@@ -50,7 +51,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        <MockAnalysisFlow compact inputId="home-upload-input" />
+        <div className="space-y-5">
+          <MockAnalysisFlow compact inputId="home-upload-input" />
+          <Card className="overflow-hidden p-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={siteImages.hero}
+              alt="Premium male grooming AI hero visual"
+              className="h-full min-h-[260px] w-full object-cover"
+            />
+          </Card>
+        </div>
       </section>
 
       <Section
@@ -73,13 +84,23 @@ export default function HomePage() {
         title="Three simple steps"
         description="Upload a photo, review your face analysis and looksmaxxing rating signals, and use the recommendations to improve your look."
       >
-        <div className="grid gap-5 md:grid-cols-3">
-          {steps.map((step, index) => (
-            <Card key={step}>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">Step 0{index + 1}</p>
-              <p className="mt-4 text-xl font-black text-white">{step}</p>
-            </Card>
-          ))}
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-1">
+            {steps.map((step, index) => (
+              <Card key={step}>
+                <p className="text-sm font-bold uppercase tracking-[0.25em] text-emerald-400">Step 0{index + 1}</p>
+                <p className="mt-4 text-xl font-black text-white">{step}</p>
+              </Card>
+            ))}
+          </div>
+          <Card className="overflow-hidden p-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={siteImages.howItWorks}
+              alt="Three-step face analysis workflow illustration"
+              className="h-full min-h-[320px] w-full object-cover"
+            />
+          </Card>
         </div>
       </Section>
 
@@ -146,17 +167,27 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="Looksmaxxing" title="Looksmaxxing guides for hair, ratings, chin, and facial features" description="Start with the highest-return looksmaxxing topics if you want to improve facial balance, rankings, and overall presentation.">
-        <div className="grid gap-5 md:grid-cols-3">
-          {blogPosts.filter((post) => post.category === "Looksmaxxing").map((post) => (
-            <Card key={post.slug}>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">{post.category}</p>
-              <h3 className="mt-3 text-xl font-black text-white">{post.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-zinc-400">{post.description}</p>
-              <Link href={`/blog/${post.slug}`} className="mt-6 inline-flex text-sm font-semibold text-emerald-300">
-                Read guide →
-              </Link>
-            </Card>
-          ))}
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <Card className="overflow-hidden p-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={siteImages.looksmaxxingSection}
+              alt="Looksmaxxing visual for men's hair, jawline, and facial structure"
+              className="h-full min-h-[360px] w-full object-cover"
+            />
+          </Card>
+          <div className="grid gap-5 md:grid-cols-2">
+            {blogPosts.filter((post) => post.category === "Looksmaxxing").map((post) => (
+              <Card key={post.slug}>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">{post.category}</p>
+                <h3 className="mt-3 text-xl font-black text-white">{post.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">{post.description}</p>
+                <Link href={`/blog/${post.slug}`} className="mt-6 inline-flex text-sm font-semibold text-emerald-300">
+                  Read guide →
+                </Link>
+              </Card>
+            ))}
+          </div>
         </div>
       </Section>
 
