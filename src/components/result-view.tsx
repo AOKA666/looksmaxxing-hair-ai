@@ -4,69 +4,32 @@ import { useEffect, useMemo, useState } from "react"
 import { Card, Pill, Section } from "@/components/ui-blocks"
 import { fallbackAnalysis, normalizeAnalysisResult, type AnalysisResult } from "@/lib/analysis"
 
-function polarPoint(cx: number, cy: number, radius: number, angleDeg: number) {
-  const angle = ((angleDeg - 90) * Math.PI) / 180
-  return {
-    x: cx + radius * Math.cos(angle),
-    y: cy + radius * Math.sin(angle),
-  }
-}
-
-function RadarChart({ result }: { result: AnalysisResult }) {
+function MetricsBars({ result }: { result: AnalysisResult }) {
   const foreheadScore = result.forehead_width === "Wide" ? 8 : result.forehead_width === "Medium" ? 6 : 4
   const metrics = [
-    { label: "Jawline", value: result.jawline_sharpness, angle: 270 },
-    { label: "Cheekbones", value: result.cheekbone_prominence, angle: 30 },
-    { label: "Forehead", value: foreheadScore, angle: 150 },
+    { label: "Jawline", value: result.jawline_sharpness },
+    { label: "Cheekbones", value: result.cheekbone_prominence },
+    { label: "Forehead", value: foreheadScore, suffix: result.forehead_width },
   ]
-
-  const cx = 120
-  const cy = 120
-  const maxR = 78
-  const rings = [0.25, 0.5, 0.75, 1]
-
-  const polygon = metrics
-    .map((metric) => {
-      const point = polarPoint(cx, cy, (metric.value / 10) * maxR, metric.angle)
-      return `${point.x},${point.y}`
-    })
-    .join(" ")
 
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Face metrics</p>
-      <div className="mt-3 flex flex-col items-center">
-        <svg viewBox="0 0 240 240" className="h-56 w-56">
-          {rings.map((ring) => {
-            const points = metrics
-              .map((metric) => {
-                const point = polarPoint(cx, cy, maxR * ring, metric.angle)
-                return `${point.x},${point.y}`
-              })
-              .join(" ")
-            return <polygon key={ring} points={points} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-          })}
-
-          {metrics.map((metric) => {
-            const end = polarPoint(cx, cy, maxR, metric.angle)
-            return <line key={metric.label} x1={cx} y1={cy} x2={end.x} y2={end.y} stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-          })}
-
-          <polygon points={polygon} fill="rgba(16,185,129,0.22)" stroke="rgba(52,211,153,0.95)" strokeWidth="2" />
-
-          {metrics.map((metric) => {
-            const point = polarPoint(cx, cy, (metric.value / 10) * maxR, metric.angle)
-            return <circle key={metric.label} cx={point.x} cy={point.y} r="4" fill="rgb(110,231,183)" />
-          })}
-        </svg>
-        <div className="mt-2 grid w-full grid-cols-3 gap-2 text-center">
-          {metrics.map((metric) => (
-            <div key={metric.label}>
-              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500">{metric.label}</p>
-              <p className="mt-1 text-sm font-black text-white">{metric.value}/10</p>
+      <div className="mt-4 space-y-4">
+        {metrics.map((metric) => (
+          <div key={metric.label}>
+            <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.18em] text-zinc-400">
+              <span>{metric.label}</span>
+              <span className="font-bold text-zinc-200">{metric.suffix ? `${metric.value}/10 · ${metric.suffix}` : `${metric.value}/10`}</span>
             </div>
-          ))}
-        </div>
+            <div className="h-3 overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full rounded-full bg-[linear-gradient(90deg,rgba(16,185,129,0.55),rgba(52,211,153,1))] shadow-[0_0_18px_rgba(16,185,129,0.35)]"
+                style={{ width: `${metric.value * 10}%` }}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
@@ -123,7 +86,7 @@ export function ResultView({ allowPreviewImage = false }: { allowPreviewImage?: 
                 <p className="mt-3 text-sm leading-7 text-zinc-400">{result.face_analysis_text}</p>
               </div>
               <div className="mt-8">
-                <RadarChart result={result} />
+                <MetricsBars result={result} />
               </div>
             </div>
           </Card>
