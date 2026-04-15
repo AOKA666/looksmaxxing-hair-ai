@@ -9,6 +9,42 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "looksmaxxing-hair-guide",
+    title: "Looksmaxxing Hair Guide for Men",
+    description: "A practical looksmaxxing hair guide for men who want sharper haircuts, better facial balance, and stronger first impressions.",
+    category: "Looksmaxxing",
+    date: "2026-04-15",
+    content: [
+      "Looksmaxxing hair is not about copying random trends. It is about choosing a haircut that improves facial balance, works with your face shape, and makes your strongest features more obvious.",
+      "For most men, the biggest gains come from controlling side width, using more texture on top, and matching the haircut to jawline strength and face length rather than chasing whatever is trending on TikTok this week.",
+      "If you want the highest-return improvements, start with face shape, then choose a haircut that supports your jawline, cheekbones, and forehead balance. That is how looksmaxxing hair actually works in real life.",
+    ],
+  },
+  {
+    slug: "looksmaxxing-rating-for-men",
+    title: "Looksmaxxing Rating for Men",
+    description: "How to think about a looksmaxxing rating for men using face shape, jawline, cheekbones, forehead balance, and haircut strategy.",
+    category: "Looksmaxxing",
+    date: "2026-04-15",
+    content: [
+      "A useful looksmaxxing rating is not just about whether someone is attractive. It is about understanding which features are already strong and which styling choices can improve the overall result.",
+      "Jawline sharpness, cheekbone prominence, forehead balance, face shape, haircut choice, and beard strategy all change how a face reads. A better rating framework looks at structure first, then grooming.",
+      "That is why the same man can look average with the wrong haircut and significantly better with a cleaner cut, smarter beard, and more flattering face-shape strategy.",
+    ],
+  },
+  {
+    slug: "how-to-rate-my-face-for-looksmaxxing",
+    title: "How to Rate My Face for Looksmaxxing",
+    description: "A clear way to rate your face for looksmaxxing using face shape, jawline, cheekbones, chin balance, and hairstyle choices.",
+    category: "Looksmaxxing",
+    date: "2026-04-15",
+    content: [
+      "If you want to rate your face for looksmaxxing, start with structure instead of insecurity. Look at face shape, jawline definition, cheekbone visibility, chin balance, forehead width, and overall symmetry.",
+      "Then ask the more useful question: what can actually be improved? Haircut, beard shape, frame choice, skin presentation, and photo angle often create bigger gains than men expect.",
+      "A face rating becomes useful only when it leads to better decisions. Otherwise it is just doom-scrolling with a mirror.",
+    ],
+  },
+  {
     slug: "best-haircuts-for-square-face-men",
     title: "Best Haircuts for Square Face Men",
     description: "Haircuts that sharpen a strong jawline without making a square face look too boxy, especially for looksmaxxing hair goals.",
