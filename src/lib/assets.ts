@@ -1,4 +1,4 @@
-const R2_BASE = "https://08580c63d6ce3edd2f923ee05aa43eff.r2.cloudflarestorage.com/looksmaxxing/web-images"
+const R2_BASE = "https://pub-edbe4ab918724de1b2705a13bc757cc7.r2.dev/web-images"
 
 export function r2Image(path: string) {
   return `${R2_BASE}/${path}`

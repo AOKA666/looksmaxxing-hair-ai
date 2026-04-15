@@ -52,7 +52,6 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-5">
-          <MockAnalysisFlow compact inputId="home-upload-input" />
           <Card className="overflow-hidden p-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -61,6 +60,7 @@ export default function HomePage() {
               className="h-full min-h-[260px] w-full object-cover"
             />
           </Card>
+          <MockAnalysisFlow compact inputId="home-upload-input" />
         </div>
       </section>
 
@@ -110,37 +110,54 @@ export default function HomePage() {
         description="The right strategy depends on whether you need more height, less width, more definition, or less length."
       >
         <div className="grid gap-5 lg:grid-cols-2">
-          {faceShapeCards.map((card) => (
-            <Card key={card.name}>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-2xl font-black text-white">{card.name}</h3>
-                  <p className="mt-2 text-sm leading-7 text-zinc-400">{card.summary}</p>
+          {faceShapeCards.map((card) => {
+            const imageMap = {
+              Square: siteImages.faceShapes.square,
+              Oval: siteImages.faceShapes.oval,
+              Oblong: siteImages.faceShapes.oblong,
+              Round: siteImages.faceShapes.round,
+            } as const
+
+            return (
+              <Card key={card.name} className="overflow-hidden p-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imageMap[card.name as keyof typeof imageMap]}
+                  alt={`${card.name} face shape male portrait`}
+                  className="h-72 w-full object-cover"
+                />
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-black text-white">{card.name}</h3>
+                      <p className="mt-2 text-sm leading-7 text-zinc-400">{card.summary}</p>
+                    </div>
+                    <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                      Recommended
+                    </span>
+                  </div>
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Usually works</p>
+                      <ul className="mt-3 space-y-2 text-sm text-zinc-300">
+                        {card.best.map((item) => (
+                          <li key={item}>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-rose-300">Usually avoid</p>
+                      <ul className="mt-3 space-y-2 text-sm text-zinc-300">
+                        {card.avoid.map((item) => (
+                          <li key={item}>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                  Recommended
-                </span>
-              </div>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Usually works</p>
-                  <ul className="mt-3 space-y-2 text-sm text-zinc-300">
-                    {card.best.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-rose-300">Usually avoid</p>
-                  <ul className="mt-3 space-y-2 text-sm text-zinc-300">
-                    {card.avoid.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            )
+          })}
         </div>
       </Section>
 
