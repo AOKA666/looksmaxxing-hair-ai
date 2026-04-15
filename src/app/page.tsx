@@ -6,8 +6,8 @@ import { faceShapeCards, blogPosts } from "@/lib/site-data"
 
 const features = [
   ["Face shape analysis", "See your most likely face shape and understand why it fits your features."],
-  ["Haircut recommendations", "Find styles that add balance, sharpen your features, and suit your structure."],
-  ["Beard guidance", "Use beard shape to improve jaw definition and overall facial balance."],
+  ["Looksmaxxing hair guidance", "Find haircut ideas that improve facial balance, structure, and overall looksmaxxing hair potential."],
+  ["Beard guidance", "Use beard shape to improve jaw definition, chin balance, and overall facial harmony."],
   ["Clearer style direction", "Get focused advice for men who want to look sharper in real life and in photos."],
 ]
 
@@ -29,7 +29,7 @@ export default function HomePage() {
             Start <span className="text-emerald-400">winning.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-            Upload one clear selfie and get face shape insights, haircut ideas, beard suggestions, and style direction designed for men.
+            Upload one clear selfie and get face shape insights, looksmaxxing hair suggestions, beard recommendations, chin and jawline feedback, and practical style direction designed for men.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <UploadTriggerButton inputId="home-upload-input">Scan your face</UploadTriggerButton>
@@ -37,15 +37,15 @@ export default function HomePage() {
           <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 text-sm text-zinc-400 sm:grid-cols-3">
             <div>
               <p className="text-2xl font-black text-white">4s</p>
-              <p>Fast AI-style visual diagnosis</p>
+              <p>Fast AI-style looksmaxxing analysis</p>
             </div>
             <div>
               <p className="text-2xl font-black text-white">For men</p>
-              <p>Focused on hair, beard, and frame choices that suit male styling goals</p>
+              <p>Focused on hair, beard, jawline, chin, and frame choices that suit male styling goals</p>
             </div>
             <div>
               <p className="text-2xl font-black text-white">Actionable</p>
-              <p>Not just a label. You get what to do next.</p>
+              <p>Not just a label. You get clear rankings, recommendations, and what to do next.</p>
             </div>
           </div>
         </div>
@@ -55,8 +55,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="Why use it"
-        title="Built for men who want clearer grooming and haircut decisions."
-        description="Use face shape, proportions, and structure to choose styles that make you look sharper and more balanced." 
+        title="Built for men who want clearer grooming, haircut, and looksmaxxing decisions."
+        description="Use face shape, proportions, jawline strength, cheekbone balance, and chin structure to choose styles that make you look sharper and more balanced." 
       >
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map(([title, description]) => (
@@ -71,7 +71,7 @@ export default function HomePage() {
       <Section
         eyebrow="How it works"
         title="Three simple steps"
-        description="Upload a photo, review your analysis, and use the recommendations to improve your look."
+        description="Upload a photo, review your face analysis and looksmaxxing rating signals, and use the recommendations to improve your look."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {steps.map((step, index) => (
@@ -126,11 +126,11 @@ export default function HomePage() {
       <Section
         eyebrow="Explore"
         title="Go deeper into the style advice that fits you best"
-        description="Browse focused pages for face shape analysis, haircut ideas, and beard recommendations."
+        description="Browse focused pages for face shape analysis, looksmaxxing hair ideas, beard recommendations, and practical facial feature guidance."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["/result", "Your Result", "See how your face shape result turns into haircut, beard, and style advice."],
+            ["/result", "Your Result", "See how your face shape result turns into haircut, beard, style advice, and a practical looksmaxxing rating view."],
             ["/mens-hairstyles-by-face-shape", "Men's Hairstyles by Face Shape", "Compare haircut ideas for square, oval, round, and oblong face shapes."],
             ["/beard-styles-by-face-shape", "Beard Styles by Face Shape", "Find beard styles that improve balance and sharpen your features."],
           ].map(([href, title, description]) => (

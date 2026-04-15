@@ -5,7 +5,7 @@ import { blogPosts } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Blog | Looksmaxxing Hair AI",
-  description: "Face shape, haircut, and beard guides for men who want clearer grooming decisions.",
+  description: "Face shape, looksmaxxing hair, beard, chin, and facial feature guides for men who want clearer grooming decisions and stronger rankings.",
 }
 
 export default function BlogPage() {

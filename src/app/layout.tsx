@@ -3,9 +3,9 @@ import "./globals.css"
 import { SiteChrome } from "@/components/site-chrome"
 
 export const metadata: Metadata = {
-  title: "Looksmaxxing Hair AI | Face Shape, Haircut & Beard Analysis for Men",
+  title: "Looksmaxxing Hair AI | Face Shape, Haircut, Rating & Beard Analysis for Men",
   description:
-    "Looksmaxxing Hair AI helps men analyze face shape and get stronger haircut, beard, and grooming direction from a premium AI-style experience.",
+    "Looksmaxxing Hair AI helps men analyze face shape, looksmaxxing hair potential, jawline and chin structure, and get a practical looksmaxxing rating with haircut, beard, and grooming direction.",
   metadataBase: new URL("https://looksmaxxing-hair-ai.vercel.app"),
 }
 

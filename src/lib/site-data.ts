@@ -11,7 +11,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-haircuts-for-square-face-men",
     title: "Best Haircuts for Square Face Men",
-    description: "Haircuts that sharpen a strong jawline without making a square face look too boxy.",
+    description: "Haircuts that sharpen a strong jawline without making a square face look too boxy, especially for looksmaxxing hair goals.",
     category: "Haircuts",
     date: "2026-04-13",
     content: [
@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "oval-vs-oblong-face-male",
     title: "Oval vs Oblong Face Male",
-    description: "The difference that changes haircut advice fast if your face already leans long.",
+    description: "The difference that changes haircut advice, jawline balance, and face rankings fast if your face already leans long.",
     category: "Face Shape",
     date: "2026-04-13",
     content: [
@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-beard-styles-for-your-face-shape",
     title: "Best Beard Styles for Your Face Shape",
-    description: "Use beard width, length, and outline to improve lower-face balance instead of guessing.",
+    description: "Use beard width, length, and outline to improve lower-face balance, chin appearance, and overall looksmaxxing features.",
     category: "Beards",
     date: "2026-04-13",
     content: [
