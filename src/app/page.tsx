@@ -38,25 +38,25 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="grid-noise mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:py-24">
+      <section className="grid-noise mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-5 sm:py-16 md:grid-cols-[1.05fr_0.95fr] md:gap-10 md:py-24">
         <div className="flex flex-col justify-center">
           <Pill>AI Face Shape + Haircut Tool for Men</Pill>
-          <h1 className="mt-6 max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white md:text-7xl">
+          <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[0.98] tracking-tight text-white sm:mt-6 sm:text-5xl md:text-7xl">
             Detect Your Face Shape and Get Better Haircut Recommendations
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-6 sm:text-lg sm:leading-8">
             Upload one clear selfie and get your likely face shape, haircut recommendations, beard suggestions, and practical styling advice in seconds.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
             <UploadTriggerButton inputId="home-upload-input">Analyze My Face Shape</UploadTriggerButton>
             <Link
               href="#example-analysis"
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-zinc-100 transition hover:border-emerald-500/40 hover:text-emerald-300"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-zinc-100 transition hover:border-emerald-500/40 hover:text-emerald-300 sm:w-auto sm:px-6 sm:tracking-[0.2em]"
             >
               See Example Result
             </Link>
           </div>
-          <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 text-sm text-zinc-400 sm:grid-cols-3">
+          <div className="mt-7 grid max-w-2xl grid-cols-1 gap-3 text-sm text-zinc-400 sm:mt-8 sm:gap-4 sm:grid-cols-3">
             <div>
               <p className="text-2xl font-black text-white">1 photo</p>
               <p>One clear selfie is enough to start</p>

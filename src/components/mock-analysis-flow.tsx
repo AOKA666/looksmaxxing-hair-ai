@@ -85,12 +85,12 @@ export function MockAnalysisFlow({ compact = false, inputId = "upload-input" }: 
     }
   }
 
-  const frameHeight = compact ? "min-h-[640px]" : "min-h-[560px]"
+  const frameHeight = compact ? "min-h-[520px] sm:min-h-[640px]" : "min-h-[500px] sm:min-h-[560px]"
 
   return (
     <div className="space-y-5">
       <Card className={`border-emerald-500/20 bg-[linear-gradient(180deg,rgba(16,185,129,0.1),rgba(9,9,11,0.9))] p-0 overflow-hidden ${frameHeight}`}>
-        <div className="flex h-full flex-col rounded-[1.5rem] border border-white/10 bg-black/40 p-6">
+        <div className="flex h-full flex-col rounded-[1.5rem] border border-white/10 bg-black/40 p-4 sm:p-6">
           <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-zinc-400">
             <span>Photo upload</span>
             <span className="text-emerald-300">{stage === "loading" ? "Analyzing" : "Ready"}</span>
@@ -99,19 +99,19 @@ export function MockAnalysisFlow({ compact = false, inputId = "upload-input" }: 
           <button
             type="button"
             onClick={() => stage === "idle" && inputRef.current?.click()}
-            className="mt-6 flex flex-1 flex-col justify-center text-left"
+            className="mt-4 flex flex-1 flex-col justify-center text-left sm:mt-6"
           >
-            <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 aspect-[4/5] transition hover:border-emerald-500/40">
+            <div className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-950 aspect-[4/5] transition hover:border-emerald-500/40 sm:max-w-sm sm:rounded-[2rem]">
               {previewUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={previewUrl} alt="Uploaded face preview" className="h-full w-full object-cover" />
               ) : (
                 <div className="flex h-full flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_35%),linear-gradient(180deg,#18181b,#09090b)] text-center px-6">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-5xl text-emerald-300">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-4xl text-emerald-300 sm:h-24 sm:w-24 sm:text-5xl">
                     ⌁
                   </div>
-                  <p className="mt-6 text-2xl font-black uppercase text-white">Upload your photo</p>
-                  <p className="mt-2 max-w-xs text-sm leading-7 text-zinc-400">
+                  <p className="mt-5 text-xl font-black uppercase text-white sm:mt-6 sm:text-2xl">Upload your photo</p>
+                  <p className="mt-2 max-w-xs text-sm leading-6 text-zinc-400 sm:leading-7">
                     Front-facing. Clear lighting. Forehead, cheekbones, and jaw visible.
                   </p>
                 </div>
@@ -119,11 +119,11 @@ export function MockAnalysisFlow({ compact = false, inputId = "upload-input" }: 
 
               {stage === "loading" ? (
                 <div className="pointer-events-none absolute inset-0 z-10 bg-black/20">
-                  <div className="absolute inset-3 rounded-[1.4rem] border border-emerald-400/40" />
-                  <div className="absolute left-5 top-5 h-5 w-5 border-l-2 border-t-2 border-emerald-300" />
-                  <div className="absolute right-5 top-5 h-5 w-5 border-r-2 border-t-2 border-emerald-300" />
-                  <div className="absolute bottom-5 left-5 h-5 w-5 border-b-2 border-l-2 border-emerald-300" />
-                  <div className="absolute bottom-5 right-5 h-5 w-5 border-b-2 border-r-2 border-emerald-300" />
+                  <div className="absolute inset-2 rounded-[1.1rem] border border-emerald-400/40 sm:inset-3 sm:rounded-[1.4rem]" />
+                  <div className="absolute left-4 top-4 h-4 w-4 border-l-2 border-t-2 border-emerald-300 sm:left-5 sm:top-5 sm:h-5 sm:w-5" />
+                  <div className="absolute right-4 top-4 h-4 w-4 border-r-2 border-t-2 border-emerald-300 sm:right-5 sm:top-5 sm:h-5 sm:w-5" />
+                  <div className="absolute bottom-4 left-4 h-4 w-4 border-b-2 border-l-2 border-emerald-300 sm:bottom-5 sm:left-5 sm:h-5 sm:w-5" />
+                  <div className="absolute bottom-4 right-4 h-4 w-4 border-b-2 border-r-2 border-emerald-300 sm:bottom-5 sm:right-5 sm:h-5 sm:w-5" />
                   <div className="absolute inset-x-0 top-0 z-20 h-full overflow-hidden rounded-[2rem]">
                     <div className="scan-beam absolute left-0 right-0 top-[-12%] h-14" />
                   </div>
@@ -131,19 +131,19 @@ export function MockAnalysisFlow({ compact = false, inputId = "upload-input" }: 
               ) : null}
             </div>
 
-            <div className="mt-6 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">
+            <div className="mt-5 text-center sm:mt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300 sm:text-sm sm:tracking-[0.25em]">
                 {stage === "idle" ? "Click to upload" : activeStep}
               </p>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-zinc-400">{helperText}</p>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-zinc-400 sm:leading-7">{helperText}</p>
             </div>
           </button>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 flex flex-col items-stretch justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center">
             <button
               type="button"
               onClick={() => inputRef.current?.click()}
-              className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-black transition hover:bg-emerald-300"
+              className="inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-black transition hover:bg-emerald-300 sm:w-auto sm:px-6 sm:tracking-[0.2em]"
             >
               {previewUrl ? "Replace photo" : "Upload photo"}
             </button>

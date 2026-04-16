@@ -13,8 +13,8 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-[#09090b] text-zinc-100">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.16),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(52,211,153,0.08),transparent_20%)]" />
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#09090b]/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <Link href="/" className="text-lg font-black tracking-[0.2em] uppercase">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-5 sm:py-4">
+          <Link href="/" className="text-sm font-black tracking-[0.14em] uppercase sm:text-lg sm:tracking-[0.2em]">
             <span className="text-emerald-400">Looksmaxxing</span> Hair AI
           </Link>
           <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">

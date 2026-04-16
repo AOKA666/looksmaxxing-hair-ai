@@ -61,29 +61,29 @@ export function ResultView({ allowPreviewImage = false }: { allowPreviewImage?: 
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-5 py-16 md:py-24">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-5 sm:py-16 md:py-24">
         <Pill>Result</Pill>
-        <h1 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">Your face shape result</h1>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
+        <h1 className="mt-5 text-3xl font-black uppercase text-white sm:mt-6 sm:text-4xl md:text-6xl">Your face shape result</h1>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-8">
           Review your face shape analysis, understand your strongest features, and use the recommendations to choose a better haircut and beard style.
         </p>
-        <div className="mt-10 grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-          <Card className="min-h-[620px] bg-[linear-gradient(180deg,rgba(16,185,129,0.12),rgba(9,9,11,0.92))]">
-            <div className="flex h-full flex-col justify-between rounded-[1.5rem] border border-white/10 bg-black/40 p-6">
+        <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <Card className="min-h-[560px] sm:min-h-[620px] bg-[linear-gradient(180deg,rgba(16,185,129,0.12),rgba(9,9,11,0.92))]">
+            <div className="flex h-full flex-col justify-between rounded-[1.5rem] border border-white/10 bg-black/40 p-4 sm:p-6">
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-zinc-400">
                 <span>Analysis</span>
                 <span className="text-emerald-300">Complete</span>
               </div>
               <div className="text-center">
-                <div className="mx-auto h-56 w-44 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.28),transparent_35%),linear-gradient(180deg,rgba(39,39,42,0.95),rgba(9,9,11,0.95))]">
+                <div className="mx-auto h-48 w-36 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.28),transparent_35%),linear-gradient(180deg,rgba(39,39,42,0.95),rgba(9,9,11,0.95))] sm:h-56 sm:w-44 sm:rounded-[2rem]">
                   {previewUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={previewUrl} alt="Analyzed face preview" className="h-full w-full object-cover" />
                   ) : null}
                 </div>
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.35em] text-zinc-400">Likely face shape</p>
-                <p className="mt-2 text-4xl font-black uppercase text-white">{resultTitle}</p>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">{result.face_analysis_text}</p>
+                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-400 sm:mt-6 sm:text-xs sm:tracking-[0.35em]">Likely face shape</p>
+                <p className="mt-2 text-3xl font-black uppercase text-white sm:text-4xl">{resultTitle}</p>
+                <p className="mt-3 text-sm leading-6 text-zinc-400 sm:leading-7">{result.face_analysis_text}</p>
               </div>
               <div className="mt-8">
                 <MetricsBars result={result} />
@@ -91,10 +91,10 @@ export function ResultView({ allowPreviewImage = false }: { allowPreviewImage?: 
             </div>
           </Card>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
             <Card>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400">Best hairstyles</p>
-              <h2 className="mt-3 text-2xl font-black text-white">Recommended</h2>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-400 sm:text-xs sm:tracking-[0.25em]">Best hairstyles</p>
+              <h2 className="mt-3 text-xl font-black text-white sm:text-2xl">Recommended</h2>
               <ul className="mt-4 space-y-2 text-sm text-zinc-300">
                 {result.best_hairstyles.map((style) => (
                   <li key={style}>• {style}</li>
