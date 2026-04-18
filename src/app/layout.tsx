@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="FSm0Yx2GIliobhdyEOMcXQ"
+          async
+        />
+      </head>
       <body className="font-sans">
         <SiteChrome>{children}</SiteChrome>
       </body>
